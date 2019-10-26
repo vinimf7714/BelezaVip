@@ -12445,11 +12445,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vinicius\\source\\repos\\BelezaVip\\BelezaVip\\BelezaVip.csproj",
+      "projectUniqueName": "D:\\RepoGitHub\\App\\BelezaVip\\BelezaVip\\BelezaVip.csproj",
       "projectName": "BelezaVip",
-      "projectPath": "C:\\Users\\vinicius\\source\\repos\\BelezaVip\\BelezaVip\\BelezaVip.csproj",
+      "projectPath": "D:\\RepoGitHub\\App\\BelezaVip\\BelezaVip\\BelezaVip.csproj",
       "packagesPath": "C:\\Users\\vinicius\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vinicius\\source\\repos\\BelezaVip\\BelezaVip\\obj\\",
+      "outputPath": "D:\\RepoGitHub\\App\\BelezaVip\\BelezaVip\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
