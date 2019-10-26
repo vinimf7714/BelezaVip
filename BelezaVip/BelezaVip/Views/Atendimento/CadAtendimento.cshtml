@@ -1,0 +1,74 @@
+﻿@model BelezaVip.Models.AtendimentoViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CadAtendimento</title>
+</head>
+<body>
+
+<h4>AtendimentoViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CadAtendimento">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DataAtendimento" class="control-label"></label>
+                <input asp-for="DataAtendimento" class="form-control" />
+                <span asp-validation-for="DataAtendimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeCliente" class="control-label"></label>
+                <input asp-for="NomeCliente" class="form-control" />
+                <span asp-validation-for="NomeCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeProfissional" class="control-label"></label>
+                <input asp-for="NomeProfissional" class="form-control" />
+                <span asp-validation-for="NomeProfissional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeProcedimento" class="control-label"></label>
+                <input asp-for="NomeProcedimento" class="form-control" />
+                <span asp-validation-for="NomeProcedimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorProcedimento" class="control-label"></label>
+                <input asp-for="ValorProcedimento" class="form-control" />
+                <span asp-validation-for="ValorProcedimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorDesconto" class="control-label"></label>
+                <input asp-for="ValorDesconto" class="form-control" />
+                <span asp-validation-for="ValorDesconto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComissaoPorcentagem" class="control-label"></label>
+                <input asp-for="ComissaoPorcentagem" class="form-control" />
+                <span asp-validation-for="ComissaoPorcentagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComissaoValor" class="control-label"></label>
+                <input asp-for="ComissaoValor" class="form-control" />
+                <span asp-validation-for="ComissaoValor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

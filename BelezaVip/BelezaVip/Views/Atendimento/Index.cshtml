@@ -1,0 +1,90 @@
+﻿@model List<BelezaVip.Models.AtendimentoViewModel>
+
+@*@{
+    ViewData["Title"] = "Atendimentos";
+}*@
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.js/"> </script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+        @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>*@
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>*@
+@*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+@*<script type="text/javascript" charset="utf8" src="~/lib/jquery/dist/jquery.dataTables.js"></script>*@
+
+@*<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />*@
+@*
+    <script src="~/lib/jquery/dist/jquery.dataTables.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>*@
+
+<h2>Atendimentos</h2>
+
+<div class="col-md-12">
+
+    <table id="tableAtendimento" class="table table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th scope="col"> Data Atendimento</th>
+                <th> Cliente</th>
+                <th> Profissional</th>
+                <th> Procedimento</th>
+                <th> Valor Procedimento</th>
+                <th> Valor Desconto</th>
+                <th> Comissão Porcentagem </th>
+                <th> Comissão Valor </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.DataAtendimento</td>
+
+                    <td>@item.NomeCliente</td>
+
+                    <td>@item.NomeProfissional</td>
+
+                    <td>@item.NomeProcedimento</td>
+
+                    <td>@item.ValorProcedimento</td>
+
+                    <td>@item.ValorDesconto</td>
+
+                    <td>@item.ComissaoPorcentagem</td>
+
+                    <td>@item.ComissaoValor</td>
+                </tr>
+
+            }
+
+
+
+        </tbody>
+
+
+
+    </table>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('#tbAtendimento').DataTable({
+            "serverSide": true,
+            "processing": true,
+            "ordering": false
+        });
+    });
+
+
+</script>

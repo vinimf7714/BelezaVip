@@ -1,0 +1,168 @@
+﻿@model BelezaVip.Models.AtendimentoViewModel
+
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+@{
+    ViewData["Title"] = "Atendimentos";
+}
+
+<h2>Cadastro de atendimentos</h2>
+
+
+<div class="row">
+    <form asp-action="Index">
+        <div class="col-sm-3">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label> Data </label>
+                <input asp-for="DataAtendimento" class="form-control" />
+                <span asp-validation-for="DataAtendimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label> Cliente </label>
+                <input asp-for="NomeCliente" class="form-control" />
+                <span asp-validation-for="NomeCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label> Profissional </label>
+                <input asp-for="NomeProfissional" class="form-control" />
+                <span asp-validation-for="NomeProfissional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label> Procedimento </label>
+                <input asp-for="NomeProcedimento" class="form-control" , id="NomeProcedimento" />
+                <span asp-validation-for="NomeProcedimento" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label> Valor  </label>
+                <input type="text" id="ValorProcedimento" value=""/>
+
+                @*<input asp-for="ValorProcedimento" class="form-control" />
+                <span asp-validation-for="ValorProcedimento" class="text-danger"></span>*@
+                @*<input type="text" id="idNome" placeholder="Informe um esporte" class="ui-autocomplete-input" autocomplete="on" />*@
+
+            </div>
+            <div class="form-group">
+                <label> Desconto </label>
+                <input asp-for="ValorDesconto" class="form-control" />
+                <span asp-validation-for="ValorDesconto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label> Comissão </label>
+                <input asp-for="ComissaoPorcentagem" class="form-control" />
+                <span asp-validation-for="ComissaoPorcentagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label> Comissão calculada </label>
+                <input asp-for="ComissaoValor" class="form-control" />
+                <span asp-validation-for="ComissaoValor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<input type="submit" value="Criar" class="btn btn-default" onclick="GerarComponente()" />*@
+                <div class="col-3"><input type="button" value="Cadastrar" class="btn btn-secondary" id="btnCriar" onclick="fnCreateMeetService()" /></div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div>
+    @*<a asp-action="Index">Back to List</a>*@
+</div>
+
+<script type="text/javascript">
+   function fnCreateMeetService() {
+        //codeBehindCall('POST', '/CadAtendimento/Create', { }, 'dtContainerVizualizarVPP', 'html')
+        var ObjectModel_ = {
+            DataAtendimento: $("#DataAtendimento").val(),
+            NomeCliente: $("#NomeCliente").val(),
+            NomeProfissional: $("#NomeProfissional").val(),
+            NomeProcedimento: $("#NomeProcedimento").val(),
+            ValorProcedimento: $("#ValorProcedimento").val(),
+            ValorDesconto: $("#ValorDesconto").val(),
+            ComissaoPorcentagem: $("#ComissaoPorcentagem").val()
+
+       }
+
+        var container = "divResult";
+
+        $.ajax({
+            url: "/CadAtendimento/CriarAtendimento",
+            type: "POST",
+            dataType: "json",
+            data: { model_: ObjectModel_ },
+            success: function (result, status, xhr) {
+                $('#' + container).html(result);
+            },
+            error: function (xhr) {
+                $('#' + container).html('Ocorreu um erro ao realizar a requisição');
+            }
+        });
+    }
+
+
+    var statusAutoComplete = false;
+    $("#NomeProcedimento").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "/CadAtendimento/AutoComplete",
+                type: "POST",
+                dataType: "json",
+                data: { prefixText_: request.term, idDiv_: 'NomeProcedimento' },
+                success: function (data) {
+                    statusAutoComplete = true;
+                    response($.map(data, function (item) {
+                        return { id: item.id, value: item.nomeProcedimento };
+                    }))
+
+                }
+            })
+        },
+        messages: {
+            noResults: "Não existem dados", results: "Não existem dados"
+        }
+    });
+
+
+    $("[id*=NomeProcedimento]").on('keydown', function (e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode == 9) {
+            e.preventDefault();
+            if (statusAutoComplete) {
+                findValorProcedimento();
+            }
+            
+        }
+    });
+
+
+    function findValorProcedimento() {
+        $.ajax({
+            url: "/CadAtendimento/FindValorProcedimento",
+            type: "POST",
+            dataType: "json",
+            data: { NomeProcedimento_: $("#NomeProcedimento").val() },
+            success: function (data) {
+                console.log(data);
+                $('#ValorProcedimento').val(data)
+            }
+        });
+    }
+
+
+</script>
+
+
+<br />
+<br />
+<br />
+
+
