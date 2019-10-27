@@ -30,9 +30,11 @@ namespace BelezaVip.Controllers
         {
             public int Id { get; set; }
             public String NomeProcedimento { get; set; }
+            public string valorProcedimento { get; set; }
         }
 
-        public JsonResult FindValorProcedimento(String NomeProcedimento_)   {
+        public JsonResult FindValorProcedimento(String NomeProcedimento_)
+        {
 
             String x = "20";
 
@@ -73,9 +75,12 @@ namespace BelezaVip.Controllers
             {
                 lista = new List<Procedimentos>() {
 
-                new Procedimentos { Id = int.Parse(dt.Rows[i]["id"].ToString()), NomeProcedimento = dt.Rows[i]["descricao"].ToString()}};
+                new Procedimentos { Id = int.Parse(dt.Rows[i]["id"].ToString()),
+                                    NomeProcedimento = dt.Rows[i]["descricao"].ToString(),
+                                    valorProcedimento = dt.Rows[i]["valor"].ToString()
+                }};
             }
-                       
+
             return lista;
         }
 

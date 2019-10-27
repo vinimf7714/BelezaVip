@@ -22,7 +22,7 @@ namespace BelezaVip.Controllers
                     NomeProcedimento = dt_.Rows[i]["nomeProcedimento"].ToString(),
                     NomeCliente = dt_.Rows[i]["nomeCliente"].ToString(),
                     DataAtendimento = DateTime.Parse(dt_.Rows[i]["dataAtendimento"].ToString()),
-                    ValorProcedimento = Double.Parse(dt_.Rows[i]["valorDesconto"].ToString()),
+                    ValorProcedimento = dt_.Rows[i]["valorDesconto"].ToString(),
                 });
             }
 

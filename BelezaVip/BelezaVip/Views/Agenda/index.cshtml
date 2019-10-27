@@ -1,99 +1,146 @@
 ﻿@model List<BelezaVip.Models.AtendimentoViewModel>
-
-
-
 @{
     ViewData["Title"] = "Agenda";
 }
 
 @{
-    var ListG = Model.Where(x => x.IdProfissional == "1");
+    var ListT = Model.Where(x => x.IdProfissional == "1");
 
     var ListA = Model.Where(x => x.IdProfissional == "2");
 
-
+    var ListS = Model.Where(x => x.IdProfissional == "3");
 }
 
-<div class="row">
-    <div class="col-sm-1" style="padding-right: 0px;padding-left: 0px;">
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th> HORA </th>
-                <tr>
-            </thead>
-            <tbody>
-                @foreach (var item in ListA)
-                {
-                    string dt = @item.DataAtendimento.ToString("HH:mm"); ;
-
-                    <tr><td>@dt</td></tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    <div class="col-sm-3">
-        <table id="tableAtendimento" class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th> Gerson </th>
-                <tr>
-            </thead>
-            <tbody>
-                @*@item.NomeCliente <span style="float:right;"><i class="fa fa-toggle-on"></i></span>*@
-                @foreach (var item in ListG)
-                {
-                    <tr style="width: 10px">
-                        <td>
-                            @if (item.NomeCliente.Equals("VAGO"))
-                            {
-                                <label style="width: 10px"></label>
-                            }
-                            else
-                            {
-                                @item.NomeCliente
-                            }
-
-                        </td>
-
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <div class="col-sm-3">
-        <table id="tableAtendimento" class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th> Aline </th>
-                <tr>
-            </thead>
-            <tbody>
-                @foreach (var item in ListA)
-                {
+    <div class="row">
+        <div class="col-sm-1" style="padding-left:20px;padding-right:0px">
+            <table class="table table-striped table-bordered">
+                <thead>
                     <tr>
-                        <td>
-                            @if (item.NomeCliente.Equals("VAGO"))
-                            {
-                                <a href="@Url.Action("", "CadAtendimento")">
-                                    <input type="button" value="+" style=""/>
-                                </a>
+                        <th> HORA </th>
+                    <tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ListA)
+                    {
+                        string dt = @item.DataAtendimento.ToString("HH:mm"); ;
 
-                            }
-                            else
-                            {
-                              @item.NomeCliente 
-                            }
+                        <tr><td>@dt</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2" style="padding-left:0px;padding-right:0px">
+            <table id="tableAtendimento" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th> Thais </th>
+                    <tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ListT)
+                    {
+                        <tr style="width: 10px">
+                            <td>
+                                @if (item.NomeCliente.Equals("VAGO"))
+                                {
+                                    <a href="@Url.Action("", "CadAtendimento")">+</a>
+                                }
+                                else
+                                {
+                                    @item.NomeCliente
+                                }
 
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-2" style="padding-left:0px;padding-right:0px">
+            <table id="tableAtendimento" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th> Aline </th>
+                    <tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ListA)
+                    {
+                        <tr>
+                            <td>
+                                @if (item.NomeCliente.Equals("VAGO"))
+                                {
+                                    <a href="@Url.Action("", "CadAtendimento")">+</a>
+                                }
+                                else
+                                {
+                                    @item.NomeCliente
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-2" style="padding-left:0px;padding-right:0px">
+            <table id="tableAtendimento" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th> Simone </th>
+                    <tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ListS)
+                    {
+                        <tr>
+                            <td>
+                                @if (item.NomeCliente.Equals("VAGO"))
+                                {
+                                    <a href="@Url.Action("", "CadAtendimento")">+</a>
+                                }
+                                else
+                                {
+                                    @item.NomeCliente
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-2" style="padding-left:0px;padding-right:0px">
+            <table id="tableAtendimento" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th> Funcionario X </th>
+                    <tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ListS)
+                    {
+                        <tr>
+                            <td>
+                                @if (item.NomeCliente.Equals("VAGO"))
+                                {
+                                    <a href="@Url.Action("", "CadAtendimento")">+</a>
+                                }
+                                else
+                                {
+                                    @item.NomeCliente
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-
 
 <script>
 

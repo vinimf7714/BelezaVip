@@ -45,6 +45,5 @@ namespace BelezaVip.Persistance
 
         }
 
-
     }
 }

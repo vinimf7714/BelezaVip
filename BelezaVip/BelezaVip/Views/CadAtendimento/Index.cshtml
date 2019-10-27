@@ -41,11 +41,12 @@
 
         <div class="col-sm-3">
             <div class="form-group">
-                <label> Valor  </label>
-                <input type="text" id="ValorProcedimento" value=""/>
+                <label> Valor </label>
+                @*<input type="text" id="ValorProcedimento" value=""/>*@
+                <input asp-for="ValorProcedimento" class="form-control" />
 
                 @*<input asp-for="ValorProcedimento" class="form-control" />
-                <span asp-validation-for="ValorProcedimento" class="text-danger"></span>*@
+        <span asp-validation-for="ValorProcedimento" class="text-danger"></span>*@
                 @*<input type="text" id="idNome" placeholder="Informe um esporte" class="ui-autocomplete-input" autocomplete="on" />*@
 
             </div>
@@ -120,7 +121,7 @@
                 success: function (data) {
                     statusAutoComplete = true;
                     response($.map(data, function (item) {
-                        return { id: item.id, value: item.nomeProcedimento };
+                        return { id: item.id, value: item.nomeProcedimento, ValorProcedimento: item.ValorProcedimento };
                     }))
 
                 }
@@ -136,9 +137,9 @@
         var keyCode = e.keyCode || e.which;
         if (keyCode == 9) {
             e.preventDefault();
-            if (statusAutoComplete) {
-                findValorProcedimento();
-            }
+            //if (statusAutoComplete) {
+            //    findValorProcedimento();
+            //}
             
         }
     });

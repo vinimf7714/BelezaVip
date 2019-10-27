@@ -34,7 +34,7 @@ namespace BelezaVip.Controllers
                 new Profissional()
                 {
                     idProfissional = 1,
-                    nomeProfissional = "Gerson",
+                    nomeProfissional = "Thais",
                     
                 });
 
@@ -45,7 +45,13 @@ namespace BelezaVip.Controllers
                     nomeProfissional = "Aline"
                 });
 
-            
+            profissionais.Add(
+               new Profissional()
+               {
+                   idProfissional = 3,
+                   nomeProfissional = "Simone"
+               });
+
 
             DateTime dt;
             List<AtendimentoViewModel> lista = new List<AtendimentoViewModel>();

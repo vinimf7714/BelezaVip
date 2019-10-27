@@ -27,7 +27,7 @@ namespace BelezaVip.Models
         public String NomeProfissional { get; set; }
         public String IdProfissional { get; set; }
         public String NomeProcedimento { get; set; }
-        public double ValorProcedimento { get; set; }
+        public String ValorProcedimento { get; set; }
         public double ValorDesconto { get; set; }
         public double ComissaoPorcentagem { get; set; }
         public double ComissaoValor { get; set; }
